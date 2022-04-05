@@ -1,14 +1,16 @@
 package utn;
 
-import utn.obejtos.*;
+import utn.obejtos.tp2.*;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        CuentaDeBanco nueva = new CuentaDeBanco();
-        nueva.setIdentifier(1);
-        nueva.setName("Franco Dominguez");
-        nueva.setBalance(15000);
+        Client cliente = new Client("Franco", "fran@gmail.com",15);
+        System.out.println(cliente.getId());
+        Invoice factura = new Invoice(cliente, 5000);
+        factura.applyDiscount();
+        System.out.println(factura.getTotal());
 
 
 

@@ -1,4 +1,4 @@
-package utn.obejtos;
+package utn.obejtos.tp1;
 
 public class ItemDeVenta {
     private int id;

@@ -1,4 +1,4 @@
-package utn.obejtos;
+package utn.obejtos.tp1;
 
 public class Rectangulo {
     private  double ancho = 1.0;
