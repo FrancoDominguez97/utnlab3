@@ -3,6 +3,8 @@ package utn.obejtos.tp2;
 import utn.obejtos.utilities.Utilities;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 // A su vez cada factura posee un monto total, una fecha y el Cliente
 //que generó la compra. Para la fecha de la venta se le va a asignar la fecha y hora al
@@ -10,16 +12,20 @@ import java.time.LocalDateTime;
 //método que calcule el monto final luego de aplicarle el descuento que posee el
 //cliente
 public class Invoice {
-    private String id;
+    private String id = Utilities.generateRandomId(8);
     private Client client;
     private double total;
-    private LocalDateTime date;
+    private ItemSell[] items;
 
-    public Invoice(Client client, double total) {
-        this.id = Utilities.generateRandomId(8);
+    LocalDateTime date = LocalDateTime.now();
+    DateTimeFormatter dateFresh = DateTimeFormatter.ofPattern("dd/MM/yy HH:mm:ss");
+    private String hourAndDate = dateFresh.format(date);
+
+
+    public Invoice(Client client, double total, ItemSell[] items) {
         this.client = client;
         this.total = total;
-        this.date = LocalDateTime.now();
+        this.items = items;
     }
 
     public String getId() {
@@ -42,12 +48,31 @@ public class Invoice {
         this.total = total;
     }
 
-    public LocalDateTime getDate() {
-        return date;
+    public ItemSell[] getItems() {
+        return items;
     }
 
-    public void applyDiscount(){
-        double discount = total * client.getDescuento() / 100;
+    public void setItems(ItemSell[] items) {
+        this.items = items;
+    }
+
+    public String getDate() {
+        return hourAndDate;
+    }
+
+    public double applyDiscount(){
+        double discount = total * client.getDiscount() / 100;
         this.total -= discount;
+        return total;
+    }
+
+    @Override
+    public String toString() {
+        return "Factura[" +
+                "id:" + id +
+                ", total=" + total +
+                ", montoDesc: " + applyDiscount()+" "
+                + client.showClient() +
+                '}';
     }
 }

@@ -7,13 +7,13 @@ public class Client {
     private String id;
     private String name;
     private String email;
-    private int descuento;
+    private int discount;
 
-    public Client(String name, String email, int descuento) {
+    public Client(String name, String email, int discount) {
         this.id = Utilities.generateRandomId(8);
         this.name = name;
         this.email = email;
-        this.descuento = descuento;
+        this.discount = discount;
     }
 
     public String getId() {
@@ -36,12 +36,28 @@ public class Client {
         this.email = email;
     }
 
-    public int getDescuento() {
-        return descuento;
+    public int getDiscount() {
+        return discount;
     }
 
-    public void setDescuento(int descuento) {
-        this.descuento = descuento;
+    public void setDiscount(int discount) {
+        this.discount = discount;
     }
 
+    public String showClient(){
+        return "Cliente[id: " + id +
+                " nombre: " + name +
+                " email: " + email +
+                " descuento: " + discount + ']';
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", discount=" + discount +
+                '}';
+    }
 }

@@ -8,9 +8,11 @@ public class Main {
     public static void main(String[] args) {
         Client cliente = new Client("Franco", "fran@gmail.com",15);
         System.out.println(cliente.getId());
-        Invoice factura = new Invoice(cliente, 5000);
+        Invoice factura = new Invoice(cliente, 5000, null);
         factura.applyDiscount();
+        System.out.println(factura.getDate());
         System.out.println(factura.getTotal());
+        System.out.println(factura.toString());
 
 
 
