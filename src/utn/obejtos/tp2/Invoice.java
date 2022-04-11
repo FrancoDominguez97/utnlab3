@@ -22,9 +22,8 @@ public class Invoice {
     private String hourAndDate = dateFresh.format(date);
 
 
-    public Invoice(Client client, double total, ItemSell[] items) {
+    public Invoice(Client client, ItemSell[] items) {
         this.client = client;
-        this.total = total;
         this.items = items;
     }
 
@@ -40,14 +39,6 @@ public class Invoice {
         this.client = client;
     }
 
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
-
     public ItemSell[] getItems() {
         return items;
     }
@@ -56,14 +47,25 @@ public class Invoice {
         this.items = items;
     }
 
+    public double getTotal() {
+        double total = 0;
+        for (ItemSell item:
+             items) {
+            if(item!=null)
+                total += item.getPriceUnit();
+        }
+        return total;
+    }
+
     public String getDate() {
         return hourAndDate;
     }
 
     public double applyDiscount(){
-        double discount = total * client.getDiscount() / 100;
-        this.total -= discount;
-        return total;
+        double totalWdiscount = getTotal();
+        double discount = totalWdiscount * client.getDiscount() /100;
+        totalWdiscount -= discount;
+        return totalWdiscount;
     }
 
     @Override
@@ -72,7 +74,7 @@ public class Invoice {
                 "id:" + id +
                 ", total=" + total +
                 ", montoDesc: " + applyDiscount()+" "
-                + client.showClient() +
+                + client.toString() +
                 '}';
     }
 }

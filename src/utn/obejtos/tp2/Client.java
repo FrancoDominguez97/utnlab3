@@ -44,20 +44,12 @@ public class Client {
         this.discount = discount;
     }
 
-    public String showClient(){
+
+    @Override
+    public String toString() {
         return "Cliente[id: " + id +
                 " nombre: " + name +
                 " email: " + email +
                 " descuento: " + discount + ']';
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", discount=" + discount +
-                '}';
     }
 }
