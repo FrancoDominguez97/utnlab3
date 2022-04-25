@@ -1,11 +1,9 @@
 package utn;
 
-import utn.obejtos.tp2.*;
 import utn.obejtos.tp3.Estudiante;
 import utn.obejtos.tp3.Persona;
 import utn.obejtos.tp3.Staff;
 
-import java.util.*;
 
 public class Main {
 
@@ -37,6 +35,7 @@ public class Main {
         }
         System.out.println("La cantidad de Estudiantes: " + countEstudiante + "\nLa cantidad de Staff: " + countStaff);
         System.out.println("El total de las coutas que recibe de los estudiantes es: $" + total);
+
 
     }
     
