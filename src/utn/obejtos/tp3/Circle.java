@@ -1,13 +1,13 @@
 package utn.obejtos.tp3;
 
-public class Circulo extends Figura{
+public class Circle extends Figure{
     private double radio;
 
-    public Circulo() {
+    public Circle() {
         this.radio = 1.0;
     }
 
-    public Circulo(String color, double radio) {
+    public Circle(String color, double radio) {
         super(color);
         this.radio = radio;
     }
@@ -16,13 +16,17 @@ public class Circulo extends Figura{
         return radio;
     }
 
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }
+
     @Override
-    public double calcularArea() {
+    public double calculateArea() {
         return (Math.PI * Math.pow(this.radio, 2));
     }
 
     @Override
-    public double calcularPerimetro() {
+    public double calculatePerimeter() {
         return (2 * Math.PI * this.radio);
     }
 

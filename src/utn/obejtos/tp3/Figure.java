@@ -1,14 +1,14 @@
 package utn.obejtos.tp3;
 
-public abstract class Figura {
+public abstract class Figure {
 
     protected String color;
 
-    public Figura(String color) {
+    public Figure(String color) {
         this.color = color;
     }
 
-    public Figura() {
+    public Figure() {
     }
 
     public String getColor() {
@@ -18,8 +18,8 @@ public abstract class Figura {
     public void setColor(String color) {
         this.color = color;
     }
-    public abstract double calcularArea();
-    public abstract double calcularPerimetro();
+    public abstract double calculateArea();
+    public abstract double calculatePerimeter();
 
     @Override
     public String toString() {
